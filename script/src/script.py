@@ -67,6 +67,7 @@ def main(app):
 	except Exception as _ex:
 		print(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + \
 			f" | [INFO] Нет соединения с БД:\n{_ex}")
+		exit()
 
 	# Шаблон вывода информации в консоль
 	print(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + \
