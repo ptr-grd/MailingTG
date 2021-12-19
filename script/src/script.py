@@ -27,7 +27,7 @@ def launchPermission():
 		with open(settings.date_run_script_file, 'r', encoding='utf-8') as file:
 			last_run_time = file.read()
 
-		last_run_time_dt = datetime.strptime(last_run_time, "%d-%m-%Y %H:%M:%S")
+		last_run_time_dt = datetime.strptime(last_run_time.strip(), "%d-%m-%Y %H:%M:%S")
 		time_difference = datetime.now() - last_run_time_dt
 		
 		# Прошло более 24 часов с последнего запуска
