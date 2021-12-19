@@ -1,0 +1,27 @@
+version: '2.0'
+
+services:
+ script:
+  build: ./script/
+  command: /script/src/script.py
+  container_name: script-mtg
+  depends_on:
+    - db
+  volumes:
+    - ./script/src/settings.py:/script/src/settings.py
+    - ./script/res/message-text.txt:/script/res/message-text.txt
+    - ./script/res/date-run.txt:/script/res/date-run.txt
+    - ./script/res/data.log:/script/res/data.log
+ db:
+  image: postgres:latest
+  container_name: dbpg-mtg
+  restart: always
+  environment:
+    - POSTGRES_PASSWORD=postgres
+    - POSTGRES_USER=postgres
+  volumes:
+    - ./.database/postgres/data:/var/lib/postgresql/data
+  ports:
+    - "5432"
+
+
