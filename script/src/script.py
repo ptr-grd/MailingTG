@@ -19,7 +19,7 @@ list_of_users_not_received_messages = []
 def launchPermission():
 
 	# Первый "нулевой" запуск
-	if os.stat(settings.date_run_script_file).st_size == 0:
+	if os.stat(settings.date_run_script_file).st_size == 1:
 		run = True
 
 	# Проверка времени
